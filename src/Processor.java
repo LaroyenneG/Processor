@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class Processor {
 
+    private static final String DEFAULT_PROMPT = "$";
+
     /* Flux */
     private PrintStream out;
     private InputStream in;
@@ -30,15 +32,40 @@ public class Processor {
     }
 
     public String fetch() {
-        return null;
+
+        return scanner.nextLine();
     }
 
-    public Command decode(String string) {
-        return null;
+    public Command decode(String name) throws ProcessorException {
+
+        Command command = null;
+
+        for (Command c : proc) {
+            if (c.getName().equals(name)) {
+                command = c;
+                break;
+            }
+        }
+
+        if (command == null) {
+            throw new ProcessorException("Bad command");
+        }
+
+        return command;
     }
 
-    public void execute(Processor processor) {
+    public void printPrompt() {
+        out.print(DEFAULT_PROMPT);
+    }
 
+    public void addNewCommand(Command command) {
+
+        proc.add(command);
+    }
+
+    public void execute(Command command) {
+
+        command.execute(this);
     }
 
     public boolean isTerminated() {
@@ -68,5 +95,13 @@ public class Processor {
 
     public Scanner scanner() {
         return scanner;
+    }
+
+    public Object getSystem() {
+        return system;
+    }
+
+    public void setSystem(Object system) {
+        this.system = system;
     }
 }
