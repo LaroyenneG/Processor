@@ -28,16 +28,19 @@ public class Processor {
         terminated = false;
 
         proc = new TreeMap<>();
+
+        addNewCommand(new CommandQuit());
+        addNewCommand(new CommandMenu());
+        addNewCommand(new CommandScript());
     }
 
     public String fetch() {
-
 
         if (!scanner.hasNext()) {
             return null;
         }
 
-        return scanner.nextLine();
+        return scanner.next();
     }
 
     public Command decode(String name) throws ProcessorException {

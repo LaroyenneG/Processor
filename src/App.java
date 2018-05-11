@@ -5,12 +5,10 @@ public class App {
 
         Processor processor = new Processor();
 
-        processor.addNewCommand(new CommandQuit());
-        processor.addNewCommand(new CommandMenu());
+
         processor.addNewCommand(new CDcr());
         processor.addNewCommand(new CValue());
         processor.addNewCommand(new CInr());
-        processor.addNewCommand(new CommandScript());
 
         processor.setIn(System.in);
         processor.setOut(System.out);
