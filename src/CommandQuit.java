@@ -1,8 +1,8 @@
 public class CommandQuit extends Command {
 
 
-    public CommandQuit(String name) {
-        super(name);
+    public CommandQuit() {
+        super("quit");
     }
 
     @Override

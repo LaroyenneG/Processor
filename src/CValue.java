@@ -1,12 +1,12 @@
 public class CValue extends CommandCounter {
 
-    public CValue(String name) {
-        super(name);
+    public CValue() {
+        super("value");
     }
 
     @Override
     public void execute(Processor processor) {
 
-        processor.out().println(counter(processor));
+        processor.out().println(counter(processor).getValue());
     }
 }

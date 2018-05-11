@@ -1,7 +1,7 @@
 public class CPlus extends CommandCounter {
 
-    public CPlus(String name) {
-        super(name);
+    public CPlus() {
+        super("plus");
     }
 
     @Override

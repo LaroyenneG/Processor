@@ -1,7 +1,7 @@
 public class CInr extends CommandCounter {
 
-    public CInr(String name) {
-        super(name);
+    public CInr() {
+        super("inr");
     }
 
     @Override

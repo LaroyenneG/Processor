@@ -1,7 +1,7 @@
 public class CDcr extends CommandCounter {
 
-    public CDcr(String name) {
-        super(name);
+    public CDcr() {
+        super("dcr");
     }
 
     @Override

@@ -1,8 +1,7 @@
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Processor {
 
@@ -15,11 +14,12 @@ public class Processor {
 
     private Object system;
 
-    private List<Command> proc;
+    private TreeMap<String, Command> proc;
 
     private boolean terminated;
 
     public Processor() {
+
         out = null;
         in = null;
         scanner = null;
@@ -28,27 +28,25 @@ public class Processor {
 
         terminated = false;
 
-        proc = new ArrayList<>();
+        proc = new TreeMap<>();
     }
 
     public String fetch() {
+
+
+        if (!scanner.hasNext()) {
+            return null;
+        }
 
         return scanner.nextLine();
     }
 
     public Command decode(String name) throws ProcessorException {
 
-        Command command = null;
-
-        for (Command c : proc) {
-            if (c.getName().equals(name)) {
-                command = c;
-                break;
-            }
-        }
+        Command command = proc.get(name);
 
         if (command == null) {
-            throw new ProcessorException("Bad command");
+            throw new ProcessorException("Bad command : " + name);
         }
 
         return command;
@@ -58,10 +56,6 @@ public class Processor {
         out.print(DEFAULT_PROMPT);
     }
 
-    public void addNewCommand(Command command) {
-
-        proc.add(command);
-    }
 
     public void execute(Command command) {
 
@@ -89,6 +83,10 @@ public class Processor {
         scanner = new Scanner(in);
     }
 
+    public void addNewCommand(Command command) {
+        proc.put(command.getName(), command);
+    }
+
     public void setOut(PrintStream printStream) {
         out = printStream;
     }
@@ -103,5 +101,16 @@ public class Processor {
 
     public void setSystem(Object system) {
         this.system = system;
+    }
+
+
+    @Override
+    public String toString() {
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append("Processor");
+
+        return stringBuilder.toString();
     }
 }
