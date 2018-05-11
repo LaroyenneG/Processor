@@ -7,7 +7,6 @@ public class Processor {
 
     private static final String DEFAULT_PROMPT = "$";
 
-    /* Flux */
     private PrintStream out;
     private InputStream in;
     private Scanner scanner;
@@ -56,6 +55,9 @@ public class Processor {
         out.print(DEFAULT_PROMPT);
     }
 
+    public void start() {
+        terminated = false;
+    }
 
     public void execute(Command command) {
 
@@ -107,10 +109,9 @@ public class Processor {
     @Override
     public String toString() {
 
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder string = new StringBuilder();
+        string.append("Processor()");
 
-        stringBuilder.append("Processor");
-
-        return stringBuilder.toString();
+        return string.toString();
     }
 }

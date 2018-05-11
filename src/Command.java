@@ -11,4 +11,9 @@ public abstract class Command {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "Command(" + name + ")";
+    }
 }

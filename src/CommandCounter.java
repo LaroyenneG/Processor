@@ -1,4 +1,4 @@
-public class CommandCounter extends Command {
+public abstract class CommandCounter extends Command {
 
 
     public CommandCounter(String name) {
@@ -10,7 +10,5 @@ public class CommandCounter extends Command {
     }
 
     @Override
-    public void execute(Processor processor) {
-
-    }
+    public abstract void execute(Processor processor);
 }
