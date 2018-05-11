@@ -1,5 +1,6 @@
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -113,8 +114,12 @@ public class Processor {
     public String toString() {
 
         StringBuilder string = new StringBuilder();
-        string.append("Processor()");
-
+        string.append("Processor(");
+        for (Map.Entry<String, Command> c : proc.entrySet()) {
+            string.append(c);
+            string.append(" ");
+        }
+        string.append(")");
         return string.toString();
     }
 }
