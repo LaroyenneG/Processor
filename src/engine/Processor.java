@@ -1,3 +1,5 @@
+package engine;
+
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Map;
@@ -49,7 +51,7 @@ public class Processor {
         Command command = proc.get(name);
 
         if (command == null) {
-            throw new ProcessorException("Bad command : " + name);
+            throw new ProcessorException("Bad shapescommands : " + name);
         }
 
         return command;
@@ -114,12 +116,13 @@ public class Processor {
     public String toString() {
 
         StringBuilder string = new StringBuilder();
-        string.append("Processor(");
+        string.append("engine.Processor(");
         for (Map.Entry<String, Command> c : proc.entrySet()) {
             string.append(c);
             string.append(" ");
         }
         string.append(")");
+
         return string.toString();
     }
 }

@@ -1,3 +1,6 @@
+import engine.Processor;
+import engine.ProcessorException;
+
 public class App {
 
 
@@ -5,14 +8,14 @@ public class App {
 
         Processor processor = new Processor();
 
-
+/*
         processor.addNewCommand(new CDcr());
         processor.addNewCommand(new CValue());
         processor.addNewCommand(new CInr());
-
+                processor.setSystem(new Counter());
+*/
         processor.setIn(System.in);
         processor.setOut(System.out);
-        processor.setSystem(new Counter());
 
 
         while (!processor.isTerminated()) {
