@@ -1,3 +1,5 @@
+package processor;
+
 import processor.engine.Processor;
 import processor.engine.ProcessorException;
 
