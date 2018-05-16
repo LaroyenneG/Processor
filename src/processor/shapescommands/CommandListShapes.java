@@ -1,6 +1,6 @@
-package shapescommands;
+package processor.shapescommands;
 
-import engine.Processor;
+import processor.engine.Processor;
 
 public class CommandListShapes extends CommandShapesEditor {
 

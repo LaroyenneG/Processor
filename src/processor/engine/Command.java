@@ -1,4 +1,4 @@
-package engine;
+package processor.engine;
 
 public abstract class Command {
 
@@ -16,6 +16,6 @@ public abstract class Command {
 
     @Override
     public String toString() {
-        return "engine.Command(" + name + ")";
+        return "processor.engine.Command(" + name + ")";
     }
 }
